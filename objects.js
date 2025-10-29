@@ -3,6 +3,8 @@
 
 // Object Literals
 // Object.create this is the way of constructor and always singleton
+
+
 // Object Literals
 const jsUser = {
   Name: "saksham",
