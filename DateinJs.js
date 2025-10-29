@@ -29,6 +29,11 @@ console.log(myNewdate.getTime());
 
 // -------we can deep dive a sinlge function using curlybraces ---//
 
-myNewdate.toLocaleDateString('default',{
-    weekday:"long",
-})
+myNewdate = new Date("2025-01-29");
+
+// Your code, now inside a console.log()
+console.log(myNewdate.toLocaleDateString('default', {
+  weekday: "long"
+}));
+
+// Output: Wednesday
