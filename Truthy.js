@@ -13,8 +13,12 @@ if (useremail){
 // "0","false"," ",[],{},function(){}
 
 // nullish coalescing operator (??): null undefined
-// basically its like ternary opr in python
 let val1 ;
 // val1=90??11;
 val1=null??11;
 console.log(val1 );
+// ternary
+// condition ? true: False
+const iceteaprice= 10
+iceteaprice<=80 ? console.log("less than 80"): console.log("more than 80 ");
+
