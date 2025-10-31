@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inflcit | DOM</title>
+</head>
+<body style="background-color: #212121;color:white;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(langName){
+        const li = document.createElement("li");
+        li.innerHTML= `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLanguage("Python")
+    addLanguage("TypeScript")
+    function addOptiLanguage(langName){
+        const li = document.createElement("li");
+        const addText= document.createTextNode(langName)
+        li.appendChild(addText)
+        document.querySelector(".language").appendChild(li)
+    }
+    addOptiLanguage('goLang')
+
+    const scndlng =document.querySelector('li:nth-child(2)');
+    // scndlng.innerHTML = "Mjoojo"
+    const newli = document.createElement("li");
+    newli.textContent= "Saksham"
+    scndlng.replaceWith(newli)
+
+    //edit 
+    const firstlng = document.querySelector('li:first-child');
+    // firstlng.innerHTML="Lodha
+    const newli1 = document.createElement("li")
+    newli1.textContent="Lakshaya";
+    firstlng.replaceWith(newli1)
+</script>
+</html>
