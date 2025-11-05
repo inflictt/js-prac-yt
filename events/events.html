@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML | EVENTS</title>
+</head>
+
+<body style="background-color: #414141;">
+    <h2>Amazing imgs</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="girl" src="pic1.jpg" alt="girl"></li>
+            <li><img width="200px" id="river" src="river.webp" alt="river"></li>
+            <li><img width="200px" id="owl" src="barn-owl.webp" alt="owl"></li>
+            <li><img width="200px" id="prayer" src="prayer.webp" alt="prayer"></li>
+            <li><a style="color: aqua;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+
+    <script>
+        // -------------------------------
+        // METHOD 1: Using "onclick" directly on element
+        // -------------------------------
+        // const owl = document.getElementById('owl').onclick = function(){
+        //     alert("owl it is");   
+        // }
+
+        // -------------------------------
+        // METHOD 2: Using addEventListener (recommended)
+        // -------------------------------
+        // document.getElementById('owl').addEventListener('click', function(){
+        //     alert("owl clicked again");
+        // }, false);
+
+        // -------------------------------
+        // #attachEvent (old IE method)
+        // #jQuery .on('click') does the same
+        // -------------------------------
+
+        // -------------------------------
+        // Example: Event Object Properties
+        // type, timestamp, defaultPrevented
+        // target, toElement, srcElement, currentTarget
+        // clientX, clientY, screenX, screenY
+        // altKey, ctrlKey, shiftKey, keyCode etc.
+        // -------------------------------
+
+        // -------------------------------
+        // EVENT BUBBLING DEMO
+        // -------------------------------
+        document.getElementById('images').addEventListener('click', function(e) {
+            console.log("BUBBLE: clicked inside the <ul> element");
+        }, false);
+
+        document.getElementById('owl').addEventListener('click', function(e) {
+            console.log("Owl clicked");
+            e.stopPropagation();  //  to stop bubbling
+        }, false);
+        document.getElementById('google').addEventListener('click',function(e){
+            console.log("google clicked");
+            e.preventDefault()//click hogs but redirect nhi hoga google ki site par
+        },false)
+        document.querySelector('#images').addEventListener('click',function(e){
+            console.log(e);
+            
+        },false)
+        // document.querySelector('#images').addEventListener('click',function(e){
+        //     console.log(e.target.parentNode);
+        //     let removeit = e.target.parentNode
+        //     // removeit.remove()
+        //     removeit.parentNode.removeChild(removeit)
+        // })
+        document.querySelector('#images').addEventListener('click', function(e) {
+            if (e.target.tagName === 'IMG') {  // only run when an image is clicked
+                let removeit = e.target.parentNode;  // get <li>
+                removeit.remove();  // remove <li>
+                console.log(`${e.target.id} image removed`);
+            }
+        });
+
+    </script>
+</body>
+</html>
